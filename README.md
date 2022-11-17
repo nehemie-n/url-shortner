@@ -30,6 +30,16 @@ Has 3 main endpoints
 2. POST /links/  : {code: string, link: string} saves a url with a preferred link
 3. GET  /links/:code : fetches based on a certain code (Fires NotFoundError if not found)
 
+## TECH
+
+This a link url shortner like bit.ly 
+Has 3 main endpoints
+1. Uses MongoDb
+2. Uses MongoDb in memory for testing
+3. Dockerized for production 
+
+Will build a frontend (VueJs | ReactJs for it)
+
 ## Installation
 
 ```bash
