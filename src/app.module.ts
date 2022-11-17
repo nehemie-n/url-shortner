@@ -1,8 +1,14 @@
 import { Module } from '@nestjs/common';
-import { LinksModule } from './links/links.module';
+import { LinksModule } from './links/./mongoose.exception.filter
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [LinksModule],
+  imports: [
+    // Environment variables load
+    // Root mongoDb
+    MongooseModule.forRoot(process.env.MONGO_DB),
+    LinksModule,
+  ],
   controllers: [],
   providers: [],
 })
