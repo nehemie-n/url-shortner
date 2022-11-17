@@ -24,7 +24,11 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This a link url shortner like bit.ly 
+Has 3 main endpoints
+1. GET  /links/  : Generates a random short text to be used for url shortening 
+2. POST /links/  : {code: string, link: string} saves a url with a preferred link
+3. GET  /links/:code : fetches based on a certain code (Fires NotFoundError if not found)
 
 ## Installation
 
@@ -54,8 +58,6 @@ $ npm run test
 # e2e tests
 $ npm run test:e2e
 
-# test coverage
-$ npm run test:cov
 ```
 
 ## Support
