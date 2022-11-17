@@ -2,7 +2,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { MongooseExceptionsFilter } from './mongoose.exception.filter';
-
+import { Logger } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
@@ -14,9 +14,9 @@ async function bootstrap() {
    * Add interceptors for some errors
    */
   app.useGlobalFilters(new MongooseExceptionsFilter());
-  /**
-   *
-   */
-  await app.listen(process.env.TZ);
+
+  await app.listen(process.env.PORT, () => {
+    Logger.verbose('Server Running PORT='+ process.env.PORT);
+  });
 }
 bootstrap();

@@ -25,7 +25,7 @@ export class MongooseExceptionsFilter implements ExceptionFilter {
 
     // If validation error
     if (exception instanceof Error.ValidationError) {
-      status = HttpStatus.FORBIDDEN;
+      status = HttpStatus.BAD_REQUEST;
     }
 
     response.status(status).json({

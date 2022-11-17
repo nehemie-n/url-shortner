@@ -9,6 +9,7 @@ import { CreateLinkDto } from './dto/create-link.dto';
 import { Link, LinkDocument, LinkModel } from './entities/link.entity';
 const nanoid = customAlphabet(
   'ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-',
+  10,
 );
 @Injectable()
 export class LinksService {
@@ -24,7 +25,9 @@ export class LinksService {
    * @returns
    */
   create(createLinkDto: CreateLinkDto) {
-    return this.linkModel.create(createLinkDto);
+    return this.linkModel.create(createLinkDto).catch((err) => {
+      throw new ForbiddenException('Short Code exists');
+    });
   }
 
   /**
@@ -43,8 +46,8 @@ export class LinksService {
       } else {
         break; // if not found just break the loop;
       }
-      return code;
     }
+    return code;
   }
 
   /**
